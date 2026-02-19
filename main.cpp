@@ -4,23 +4,26 @@ constexpr int N_ELEMENTS = 100;
 
 int main()
 {
-    int *b = new int[NELEMENTS];
-    std::cout << '1-100 ertekek duplazasa'
-    for (int i = 0;)
+    int *b = new int[NELEMENTS]; //NELEMENTS helyett N_ELEMENTS
+    std::cout << '1-100 ertekek duplazasa' //charként nem jó, ennek stringnek kell lennie és hiányzó ';'
+    for (int i = 0;) //hiányos header( condition és inkrementálás)
     {
-        b[i] = i * 2;
+        b[i] = i * 2; // b[i] = (i + 1) * 2;
     }
-    for (int i = 0; i; i++)
+    for (int i = 0; i; i++) //i=0 nem fog lefutni ==> for (int i = 0; i < N_ELEMENTS; i++)
     {
-        std::cout << "Ertek:"
+        std::cout << "Ertek:" //pontosvessző hiányzik és az érték sincs kiírva std::cout << "Ertek: " << b[i] << "\n";
     }    
     std::cout << "Atlag szamitasa: " << std::endl;
-    int atlag;
-    for (int i = 0; i < N_ELEMENTS, i++)
+    int atlag; //double vagy float, átlag nem mindig egész szám és nem árt inícializáni (= 0)
+    for (int i = 0; i < N_ELEMENTS, i++) //condition után ',' helyett ';'
     {
-        atlag += b[i]
+        atlag += b[i] // ';' hiányzik
     }
     atlag /= N_ELEMENTS;
-    std::cout << "Atlag: " << atlag << std::endl;
+    std::cout << "Atlag: " << atlag << std::endl; // "\n" egyébként gyorsabb
+
+    //delete[] b; fel kell szabadítani a dinamikusan foglalt memóriát
+
     return 0;
 }
