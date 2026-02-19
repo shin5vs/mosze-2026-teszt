@@ -26,6 +26,8 @@ int main()
 
     delete[] b; 
 
+    std::cout << "Itt voltam, sziasztok!" << std::endl; 
+
     return 0;
 }
 #pragma endregion
